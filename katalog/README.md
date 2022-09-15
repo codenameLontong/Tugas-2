@@ -1,7 +1,9 @@
-Link : https://tugas2jeremy.herokuapp.com/
+Link : 'https://tugas2jeremy.herokuapp.com/'
 
 ## 1. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya 
 dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
+
+![image](https://user-images.githubusercontent.com/100303130/190314079-9752c14b-2846-4e4d-b045-3f9731f1049e.png)
 
 Pertama, client akan merequest yang nantinya akan diterima oleh urls.py, kemudian akan dilanjutkan ke views.py yang akan melakukan
 memproses request yang sudah masuk. Bila ada proses yang membutuhkan database, akan dilakukan pemanggilan query ke models kemudian
