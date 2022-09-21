@@ -1,0 +1,112 @@
+[
+    {
+        "model":"mywatchlist.movies",
+        "pk":1,
+        "fields":{
+            "watched":"True",
+            "title":"Mencuri Raden Saleh",
+            "rating": "9",
+            "release_date":"12/09/2022",
+            "review": "Sangat apik!"
+        }
+},
+{
+        "model":"mywatchlist.movies",
+        "pk":2,
+        "fields":{
+            "watched":"True",
+            "title":"Perfume : The Story of A Murderer",
+            "rating": "9",
+            "release_date":"22/07/2006",
+            "review": "Menegangkan!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":3,
+        "fields":{
+            "watched":"True",
+            "title":"Avengers : Endgame",
+            "rating": "8",
+            "release_date":"12/09/2019",
+            "review": "Sequel yang seru!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":4,
+        "fields":{
+            "watched":"True",
+            "title":"Pengabi Setan : Communion",
+            "rating": "9",
+            "release_date":"17/07/2022",
+            "review": "Sangat menegangkan!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":5,
+        "fields":{
+            "watched":"True",
+            "title":"Thor : Ragnarok",
+            "rating": "8",
+            "release_date":"25/10/2018",
+            "review": "Revolusioner!"
+        } 
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":6,
+        "fields":{
+            "watched":"True",
+            "title":"Thor : Love and Thunder",
+            "rating": "4",
+            "release_date":"12/09/2022",
+            "review": "Mengecewakan!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":7,
+        "fields":{
+            "watched":"True",
+            "title":"Orphan",
+            "rating": "9",
+            "release_date":"17/03/2009",
+            "review": "Membuat saya bergidik!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":8,
+        "fields":{
+            "watched":"True",
+            "title":"Morbius",
+            "rating": "2",
+            "release_date":"07/05/2022",
+            "review": "Sebuah kemunduran bagi Marvel!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":9,
+        "fields":{
+            "watched":"True",
+            "title":"Incantation",
+            "rating": "8",
+            "release_date":"12/09/2022",
+            "review": "Sebuah terobosan baru!"
+        }
+    },
+    {
+        "model":"mywatchlist.movies",
+        "pk":10,
+        "fields":{
+            "watched":"True",
+            "title":"Parasite",
+            "rating": "10",
+            "release_date":"18/07/2019",
+            "review": "Layak mendapat oscar!"
+        }
+    }   
+]   
