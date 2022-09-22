@@ -4,6 +4,17 @@ from django.http import HttpResponse
 from django.core import serializers
 
 # Create your views here.
+def status(request):
+    list = Movies.objects.all()
+    counter = 0
+    for watchlist in list:
+        if watchlist.watched == "True":
+            counter += 1
+    if counter >= len(list) - counter:
+        return "Selamat, kamu sudah banyak menonton!"
+    else:
+        return "Wah, kamu masih sedikit menonton!"
+
 def show_watchlist(request):
     data_watchlist = Movies.objects.all()
     context = {
