@@ -31,10 +31,6 @@
 	{% endfor %}
   </table>
   
-	{% if watched_more_than_half_of_the_wishlist %}
-		<h4 style="text-align:center;font-weight:bold;font-size:32px;color:blue">Selamat, kamu sudah banyak menonton! ^^</h4>
-	{% else %}
-		<h4 style="text-align:center;font-weight:bold;font-size:32px;color:red">Wah, kamu masih sedikit menonton! :(</h4>
-	{% endif %}
+  <h4 style = "font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 32px; color: blue; text-align: center;">{{status}}</h5>
 
  {% endblock content %}
