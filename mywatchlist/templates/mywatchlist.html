@@ -2,29 +2,39 @@
 
  {% block content %}
 
-  <h1>Tugas 3 Assignment PBP/PBD</h1>
+  <h1 style="font-size:44px;font-weight:bold;color:white">Tugas 3 PBP/PBD</h1>
+  <h5 style="font-size:20px;font-weight:bold;color:white">Name: <span style="font-weight:normal;">Jeremy Mervin</span></h5>
+  <h5 style="font-size:20px;font-weight:bold;color:white">Student ID: <span style="font-weight:normal;">2106654675</span></h5>
 
-  <p><b>Name:</b> {{ nama }}</p>
-  <p><b>Student ID:</b> {{ id }}</p>
-
-  <table>
-    <tr>
-      <th>Watched</th>
+  <table class="table-catalog" style="cursor:pointer;">
+    <tr class="table-catalog-header">
       <th>Title</th>
-      <th>Rating</th>
       <th>Release Date</th>
-      <th>Review</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Status</th>
     </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for item in list %}
-    <tr>
-        <td>{{item.watched}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.rating}}</td>
-        <td>{{item.release_date}}</td>
-        <td>{{item.review}}</td>
+    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+
+	{% for movies in list %}
+	<tr class="table-catalog-data">
+        <td>{{movies.title}}</td>
+        <td>{{movies.release_date}}</td>
+        <td>{{movies.rating}}</td>
+        <td>{{movies.review}}</td>
+		{% if movies.watched %}
+			<td>watched</td>
+		{% else %}
+			<td>not watched</td>
+		{% endif %}
     </tr>
-    {% endfor %}
+	{% endfor %}
   </table>
+  
+	{% if watched_more_than_half_of_the_wishlist %}
+		<h4 style="text-align:center;font-weight:bold;font-size:32px;color:blue">Selamat, kamu sudah banyak menonton! ^^</h4>
+	{% else %}
+		<h4 style="text-align:center;font-weight:bold;font-size:32px;color:red">Wah, kamu masih sedikit menonton! :(</h4>
+	{% endif %}
 
  {% endblock content %}
