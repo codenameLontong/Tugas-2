@@ -6,7 +6,7 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 
 ## Apa kegunaan `{% csrf_token %}` pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`? 
 
-`{% csrf_token %}` dapat mencegah serangan CSRF yang akan membuat penyerang tidak mungkin melakukan permintaan HTTP yang secara sepenuhnya valid yang cocok untuk diumpankan ke pengguna korban.Oleh karena itu, platform akan semakin aman dari serangan pihak luar, baik yang disengaja maupun tidak.
+`{% csrf_token %}` dapat mencegah serangan CSRF yang akan membuat penyerang tidak mungkin melakukan permintaan HTTP yang secara sepenuhnya valid yang cocok untuk diumpankan ke pengguna korban. Oleh karena itu, platform akan semakin aman dari serangan pihak luar, baik yang disengaja maupun tidak.
 Pada django, jika kita tidak memuat `{% csrf_token %}`, maka request POST yang kita kirim tidak akan memiliki token. Django akan mereturn http status code 403, yakni forbidden, karena menganggap request yang kita kirim `malicious`.
 
 ## Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan generator seperti `{{ form.as_table }}`)? Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
