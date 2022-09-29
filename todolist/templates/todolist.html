@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>Assignment 4 PBP/PBD</h1>
+
+  {% if list %}
+  <table style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>🏁</th>
+      <th>🗑️</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for item in list %}
+    <tr>
+      <td>{{item.user}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.is_finished}}</td>
+      <td><button><a href="{% url 'todolist:finished' item.id %}">Finish</a></button></td>
+      <td><button><a href="{% url 'todolist:delete' item.id %}">Delete</a></button></td>
+      
+    </tr>
+	  {% endfor %}
+  </table>
+  {% else %}
+	<p>No Task Available</p>
+	{% endif %}
+
+  <button>
+    <a href="{% url 'todolist:create_task' %}"> Create Task</a>
+  </button>
+
+  <button>
+    <a href="{% url 'todolist:logout' %}"> Logout</a>
+  </button>
+
+  <h5 style = "font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 32px; color: blue; text-align: center;">{{status}}</h5>
+
+
+ {% endblock content %}
