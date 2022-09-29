@@ -33,10 +33,10 @@ View akan membaca request dari client dan dari request tersebut diambil paramete
 - Membuat aplikasi baru dengan command `python manage.py startapp todolist`
 - Add new routing untuk url dari todolist pada `urls.py`
 - Menambahkan model yang diperlukan pada `models.py`
-- Melakukan proses migrasi dengan `python manage.py make migrations` dan 'migrate'
+- Melakukan proses migrasi dengan `python manage.py make migrations` dan `migrate`
 - Implementasi fungsi untuk register, login, dan logout pada `views.py`
 - Membuat tabel untuk menampilkan data dan tombol logout dan create task pada page utama dari todolist
-- Membuat page untuk membuat data baru dengan 'create_task'
+- Membuat page untuk membuat data baru dengan `create_task`
 - Membuat fungsi baru pada `views.py` untuk membuat data baru
 - Membuat fungsi baru pada `views.py` untuk mengganti status data dan menghapus data
 - Routing fungsi-fungsi yang sudah dibuat pada `views.py` di dalam `urls.py` dari todolist
