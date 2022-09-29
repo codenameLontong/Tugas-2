@@ -2,7 +2,7 @@
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
-[App](https://pbp-django-assignment.herokuapp.com/mywatchlist/html)
+[App](https://mervinapp.herokuapp.com/todolist)
 
 ## Apa kegunaan `{% csrf_token %}` pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`? 
 
