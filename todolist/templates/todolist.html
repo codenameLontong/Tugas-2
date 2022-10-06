@@ -1,47 +1,81 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 
  {% block content %}
+  
+  <style>
 
-  <h1>Assignment 4 PBP/PBD</h1>
+    .navbar-custom {
+      background: linear-gradient(to right, rgb(34, 164, 182), rgb(9, 107, 255))
+    }
 
-  {% if list %}
-  <table style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-    <tr>
-      <th>User</th>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>🏁</th>
-      <th>🗑️</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for item in list %}
-    <tr>
-      <td>{{item.user}}</td>
-      <td>{{item.date}}</td>
-      <td>{{item.title}}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.is_finished}}</td>
-      <td><button><a href="{% url 'todolist:finished' item.id %}">Finish</a></button></td>
-      <td><button><a href="{% url 'todolist:delete' item.id %}">Delete</a></button></td>
+    .card{
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+      padding: 14px 80px 18px 36px;
+      cursor: pointer;
+    }
+
+    .card:hover{
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    }
+
+    body {
+            overflow-x: hidden;
+        }
+  </style>
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="navbar fixed-top navbar-custom color-custom shadow-lg p-3 mb-5 ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h2>TodoApp</h2></a>
+      <h2 class="px-2" style="text-align: center;">
+        <button class="btn btn-warning px-4">
+          <a href="{% url 'todolist:create_task' %}"> Create Task</a>
+        </button>
+              <button class="btn btn-danger px-4">
+          <a href="{% url 'todolist:logout' %}"> Logout</a>
+        </button>
+      </h2></div>
+    </div>
+</nav>
+  
+
+  <div class="gradient-custom">
+    <br><br><br>
+    {% if list %}
+      <div class="row row-cols-4 g-5 py-5 px-5 row d-flex justify-content-center">
+      {% comment %} Add the data below this line {% endcomment %}
+      {% for item in list %}
       
-    </tr>
-	  {% endfor %}
-  </table>
-  {% else %}
-	<p>No Task Available</p>
-	{% endif %}
+        <div class="col">
+          <div class="card .bg-light .bg-gradient rounded" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <h5 class="card-date">{{item.date}}</h5>
+              <a href="{% url 'todolist:delete' item.id %}">Delete</a>
+            </div>
+          </div>
+        </div>
+      
+    
+        
+      {% endfor %}
+      </div>
+    {% else %}
+    <h4>Hi, lets create a new Task!</h4>
+    {% endif %}
+  
+    <h5></h5>
+  
+  
+    <h5 style = "font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 32px; color: blue; text-align: center;">{{status}}</h5>
+  
+  
+   {% endblock content %}
+  </div>
 
-  <button>
-    <a href="{% url 'todolist:create_task' %}"> Create Task</a>
-  </button>
-
-  <button>
-    <a href="{% url 'todolist:logout' %}"> Logout</a>
-  </button>
-
-  <h5 style = "font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 32px; color: blue; text-align: center;">{{status}}</h5>
-
-
- {% endblock content %}

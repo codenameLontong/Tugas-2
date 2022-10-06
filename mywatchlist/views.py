@@ -3,7 +3,7 @@ from mywatchlist.models import Movies
 from django.http import HttpResponse
 from django.core import serializers
 
-# Create your views here.
+# Failed Bonus
 def status(request):
     list = Movies.objects.all()
     counter = 0
@@ -15,6 +15,7 @@ def status(request):
     else:
         return "Wah, kamu masih sedikit menonton!"
 
+# Show watchlist function for header
 def show_watchlist(request):
     data_watchlist = Movies.objects.all()
     context = {
@@ -24,10 +25,12 @@ def show_watchlist(request):
     }
     return render(request, "mywatchlist.html", context)
 
+# XML function
 def show_xml(request):
     data = Movies.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
+# JSON function
 def show_json(request):
     data = Movies.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
