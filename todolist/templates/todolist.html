@@ -47,22 +47,24 @@
   <div class="gradient-custom">
     <br><br><br>
     {% if list %}
-      <div class="row row-cols-4 g-5 py-5 px-5 row d-flex justify-content-center">
-      {% comment %} Add the data below this line {% endcomment %}
-      {% for item in list %}
-      
-        <div class="col">
-          <div class="card .bg-light .bg-gradient rounded" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{item.title}}</h5>
-              <p class="card-text">{{item.description}}</p>
-              <h5 class="card-date">{{item.date}}</h5>
-              <a href="{% url 'todolist:delete' item.id %}">Delete</a>
+    <div class="container">
+      <div class="col-18 col-md-9 col-lg-6 ">
+        {% comment %} Add the data below this line {% endcomment %}
+        {% for item in list %}
+        
+          <div class="col">
+            <div class="card .bg-light .bg-gradient rounded" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <h5 class="card-date">{{item.date}}</h5>
+                <a href="{% url 'todolist:delete' item.id %}">Delete</a>
+              </div>
             </div>
           </div>
-        </div>
+    </div>
       
-    
+         
         
       {% endfor %}
       </div>
