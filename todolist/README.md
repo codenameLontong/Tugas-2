@@ -44,6 +44,8 @@ View akan membaca request dari client dan dari request tersebut diambil paramete
 
 
 
+
+
 # Tugas 5: Pengimplementasian Form dan Autentikasi Menggunakan Django
 
 [App](http://mervinapp.herokuapp.com/todolist)
@@ -76,22 +78,14 @@ View akan membaca request dari client dan dari request tersebut diambil paramete
 
 ## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
 
-- *Universal selector*, yang akan memilih semua elemen.  
-  Contohnya adalah `*`,  yang akan memilih semua elemen.
-- *Type selector*, yang akan memili semua elemen dengan tipe/nama node yang sama.  
-  Contohnya adalah `p`, yang akan memilih semua elemen `<p>`.
-- *Class selector*, yang akan memilih semua elemen dengan kelas (*class*) yang sesuai, yang dibuat properti `class` di suatu elemen.  
-  Contohnya adalah `.red`, yang akan memilih semua elemen dengan kelas `red`.
-- *ID selector*, yang akan memilih semua elemen dengan ID yang sesuai, yang dibuat dari properti `id` di suatu elemen.  
-  Contohnya adalah `#header`, yang akan memilih semua elemen dengan ID `header`. Idealnya, satu ID hanya ada pada satu elemen.
-- *Attribute selector*, yang akan memilih semua elemen yang memiliki suatu atribut (dengan value yang sesuai, jika perlu).  
-  Contohnya adalah `[disabled]`, yang akan memilih semua elemen dengan atribut `disabled`.
-- *Selector list*, yang akan menggabungkan beberapa elemen untuk satu aturan.  
-  Contohnya adalah `div, p`, yang akan memilih semua elemen `<div>` dan `<p>`.
-- *Descendant combinator*, yang akan memilih elemen yang merupakan keturunan oleh (atau di dalam) elemen pertamanya.  
-  Contohnya adalah `div p`, yang akan memilih semua elemen `<p>` yang di dalam elemen `<div>`.
-- *Child combinator*, yang akan memilih leemen yang merupakan keturunan langsung/anak dari suatu elemen.
-  Contohnya adalah `div > p`, hang akan memilih semua elemen `<p>` yang merupakan anak dari elemen `<div>`
+- *Universal selector*, akan memilih semua elemen.  
+- *Type selector*, akan memili semua elemen dengan tipe/nama node yang sama.  
+- *Class selector*, akan memilih semua elemen dengan kelas (*class*) yang sesuai, yang dibuat properti `class` di suatu elemen.  
+- *ID selector*, akan memilih semua elemen dengan ID yang sesuai, yang dibuat dari properti `id` di suatu elemen.  
+- *Attribute selector*, akan memilih semua elemen yang memiliki suatu atribut (dengan value yang sesuai, jika perlu).  
+- *Selector list*, akan menggabungkan beberapa elemen untuk satu aturan.  
+- *Descendant combinator*, akan memilih elemen yang merupakan keturunan oleh (atau di dalam) elemen pertamanya.  
+- *Child combinator*, akan memilih leemen yang merupakan keturunan langsung/anak dari suatu elemen.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas.
 
