@@ -24,11 +24,11 @@ $(document).ready(...)
 
 ## Jelaskan penerapan asynchronous programming pada AJAX.
 
-	1. Ketika terjadi event, maka JavaScript akan membuat object XHR baru.
-	2. Objek XHR tersebut akan dikirim ke server, kemudian responsenya diterima kembali oleh JavaScript.
-	3. Response tersebut akan diolah, dan data laman web akan diperbarui oleh JavaScript tanpa harus me-_refresh_.
+1. Ketika terjadi event, maka JavaScript akan membuat object XHR baru.
+2. Objek XHR tersebut akan dikirim ke server, kemudian responsenya diterima kembali oleh JavaScript.
+3. Response tersebut akan diolah, dan data laman web akan diperbarui oleh JavaScript tanpa harus me-_refresh_.
 
-	**Artinya, kita tetap bisa melakukan proses fetching data, tanpa harus memberhentikan proses yang sedang terjadi di laman web pada waktu tersebut.**
+**Artinya, kita tetap bisa melakukan proses fetching data, tanpa harus memberhentikan proses yang sedang terjadi di laman web pada waktu tersebut.**
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas.
 
