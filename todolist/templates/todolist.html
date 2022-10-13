@@ -127,7 +127,7 @@
             <p class="card-text">Not Finished</p>
             {% endif %}
             
-            <button class="bg-green-500 rounded-2xl p-2 text-white font-bold delete" onclick="deleteTask(${item.pk})">Delete</button>
+            <button class="bg-green-500 rounded-2xl p-2 text-black font-bold delete" onclick="deleteTask(${item.pk})">Delete</button>
             
           </div>
         </div>
@@ -143,6 +143,16 @@
             body: new FormData(document.querySelector('#form'))
         }).then(refreshTodolist)
       return false
+    }
+
+    function deleteTask(id) {
+        $.ajax({
+            type: "GET",
+            url: "/todolist/delete/" + id,
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'}
+        }).done((data) => {
+            refreshTodolist();
+        })
     }
   
     document.getElementById("addtaskbutton").onclick = addTodolist
