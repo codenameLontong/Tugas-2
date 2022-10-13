@@ -39,6 +39,8 @@
               <button class="btn btn-danger px-4">
           <a href="{% url 'todolist:logout' %}"> Logout</a>
         </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add task
+        </button>
       </h2></div>
     </div>
 </nav>
@@ -47,24 +49,14 @@
   <div class="gradient-custom">
     <br><br><br>
     {% if list %}
-      <div class="row row-cols-4 g-5 py-5 px-5 row d-flex justify-content-center">
+    <div class="container mx-auto mt-4">
+      <div class="row" id="cardcontainer">
+    
+      <div class="row row-cols-4 g-5 py-5 px-5 row d-flex justify-content-center" id="cardcontainer">
       {% comment %} Add the data below this line {% endcomment %}
-      {% for item in list %}
-      
-        <div class="col">
-          <div class="card .bg-light .bg-gradient rounded" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{item.title}}</h5>
-              <p class="card-text">{{item.description}}</p>
-              <h5 class="card-date">{{item.date}}</h5>
-              <a href="{% url 'todolist:delete' item.id %}">Delete</a>
             </div>
           </div>
         </div>
-      
-    
-        
-      {% endfor %}
       </div>
     {% else %}
     <h4>Hi, lets create a new Task!</h4>
@@ -75,6 +67,88 @@
   
     <h5 style = "font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 32px; color: blue; text-align: center;">{{status}}</h5>
   
+    
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">New Task</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="form">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Title:</label>
+                <input type="text" class="form-control" id="field_title" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="field_desc" name="description"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="addtaskbutton" data-bs-dismiss="modal">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function()  {
+      refreshTodolist();
+    });
+    
+    async function getTodolist() {
+      return fetch("{% url 'todolist:get_todolist_json' %}").then((res) => res.json())
+    }
+  
+    async function refreshTodolist() {
+          document.getElementById("cardcontainer").innerHTML = ""
+          const todolist = await getTodolist()
+          let htmlString = ``
+          todolist.forEach((item) => {
+            htmlString += `<div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://drive.google.com/uc?export=view&id=1wLu2tSD-Ap9wV8XE0cW2_5sv8YeNd1sI" class="card-img-top"
+            alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${item.fields.title}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${item.fields.date}</h6>
+            <p class="card-text">${item.fields.description}</p>
+            <p class="card-text"></p> 
+            {% if task.is_finished %}
+            <p class="card-text">Finished</p>
+            {% else %}
+            <p class="card-text">Not Finished</p>
+            {% endif %}
+            
+            <button class="bg-green-500 rounded-2xl p-2 text-white font-bold delete" onclick="deleteTask(${item.pk})">Delete</button>
+            
+          </div>
+        </div>
+      </div>` 
+          })
+          
+          document.getElementById("cardcontainer").innerHTML = htmlString
+    }
+  
+    function addTodolist() {
+      fetch("{% url 'todolist:create_task_json' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshTodolist)
+      return false
+    }
+  
+    document.getElementById("addtaskbutton").onclick = addTodolist
+    
+    refreshTodolist()
+  </script>
   
    {% endblock content %}
   </div>

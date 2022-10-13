@@ -37,6 +37,23 @@ def create_task(request):
         return redirect('todolist:todolist')
     return render(request,"create-task.html")
 
+def create_task_json(request):
+    if request.method == "POST":
+        user = request.user;
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        new_obj = Task(user=request.user, title=title, description=description, date=datetime.datetime.now(), is_finished="False")
+        new_obj.save();
+        return HttpResponse(b"CREATED",status=201)
+    
+    return HttpResponse("only POST method allowed!");
+
+def get_todolist_json(request):
+    if request.method == "GET":
+        data = Task.objects.filter(user=request.user);
+        return HttpResponse(serializers.serialize("json", data));
+    return HttpResponse("Only GET method allowed!");
+
 # Handling register function
 def register(request):
     form = UserCreationForm()
@@ -86,4 +103,9 @@ def finish_task(request, pk):
 def delete_task(request, pk):
     task = Task.objects.get(id=pk)
     Task.delete(task)
-    return redirect('todolist:todolist')   
+    return redirect('todolist:todolist')
+
+# Deleting task (AJAX)
+def delete_task_ajax(request, id):
+    query = Task.objects.filter(pk=id, user=request.user).delete();
+    return HttpResponse("Berhasil menghapus task!")    
